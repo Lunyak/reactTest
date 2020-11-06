@@ -7,7 +7,7 @@ import * as yup from 'yup'
 function Form() {
 
     const validationsSchema = yup.object().shape({
-        firstName: yup.string().typeError('Должно быть строкой').required('Обязательно'),
+        firstName: yup.string().typeError('Должно быть строкой').required('Поле обязательно к заполеннию'),
         secondName: yup.string().typeError('Должно быть строкой').required('Обязательно'),
         email: yup.string().email('Введите верный email').required('Обязательно'),
         load: '',
@@ -29,9 +29,9 @@ function Form() {
             {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
 
                 <div className={style.wrap}>
-                    <div>
+                    <div className={style.item}>
                         <label className={ style.label } htmlFor='firstName'>
-                            {touched.firstName && errors.firstName ? errors.firstName : 'текст' }
+                            Имя *
                         </label>
                         <input
                             className={style.input}
@@ -41,8 +41,9 @@ function Form() {
                             onBlur={handleBlur}
                             value={values.name}
                         />
+                        {touched.firstName && errors.firstName && <div className={style.error}>{errors.firstName}</div>}
                     </div>
-                    {touched.firstName && errors.firstName && <div className={'error'}>{errors.firstName}</div>}
+                    
 
 
                     <div>
@@ -56,7 +57,7 @@ function Form() {
                             value={values.secondName}
                         />
                     </div>
-                    {touched.secondName && errors.secondName && <div className={'error'}>{errors.secondName}</div>}
+                    {/* {touched.secondName && errors.secondName && <div className={'error'}>{errors.secondName}</div>} */}
 
                     <div>
                         <label className={ style.label } htmlFor='email'>Электронная почта *</label>
@@ -69,7 +70,7 @@ function Form() {
                             value={values.email}
                         />
                     </div>
-                    {touched.load && errors.load && <p className={'error'}>{errors.load}</p>}
+                    {/* {touched.load && errors.load && <p className={'error'}>{errors.load}</p>} */}
 
                     <div>
                         <label className={ style.labelLoad } htmlFor='load'>Загрузите резюме</label>

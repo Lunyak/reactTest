@@ -40,7 +40,8 @@
     margin-bottom: 8px;
     display: block;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
+    position: relative;
 }
 
 .labelWrong {
@@ -111,4 +112,16 @@
 .submit {
     width: 100px;
     height: 40px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+}
+
+.item {
+    position: relative;
 }
