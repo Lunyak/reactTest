@@ -1,16 +1,25 @@
 import React from 'react'
-import Input from '../Input/Input'
 import style from './form.module.css'
-import { Formik } from 'formik'
+import { Formik, FieldArray } from 'formik'
 import * as yup from 'yup'
 
-function Form() {
-
+function Form() { 
+    // 
     const validationsSchema = yup.object().shape({
-        firstName: yup.string().typeError('Должно быть строкой').required('Поле обязательно к заполеннию'),
-        secondName: yup.string().typeError('Должно быть строкой').required('Обязательно'),
-        email: yup.string().email('Введите верный email').required('Обязательно'),
-        load: '',
+        firstName: yup.string()
+        .matches(/[^\s0-9`~!@#№$%^&*()_=+\\|\[\]{};:',.<>\/?]$/, 'некоректное имя')
+        .matches(/^[а-я\w-]{3,99}$/i, 'Имя слишком короткое')
+        .matches(/^[а-я\w-]{0,12}$/i, 'Имя слишком длинное')
+        .required("Поле должно быть заполненным"),
+
+        secondName: yup.string()
+        .matches(/[^\s0-9`~!@#№$%^&*()_=+\\|\[\]{};:',.<>\/?]$/, 'некоректное имя')
+        .matches(/^[а-я\w-]{3,99}$/i, 'Фамилия слишком короткое')
+        .matches(/^[а-я\w-]{0,12}$/i, 'Фамилия слишком длинное')
+        .required("Поле должно быть заполненным"),
+
+        email: yup.string().email('Некорректный email').required('Введите email'),
+        file: undefined,
     })
 
     return (
@@ -29,6 +38,7 @@ function Form() {
             {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
 
                 <div className={style.wrap}>
+
                     <div className={style.item}>
                         <label className={ style.label } htmlFor='firstName'>
                             Имя *
@@ -39,15 +49,17 @@ function Form() {
                             name={'firstName'}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.name}
+                            value={values.firstName}
                         />
-                        {touched.firstName && errors.firstName && <div className={style.error}>{errors.firstName}</div>}
+                        { touched.firstName && errors.firstName && <div className={style.error}>{errors.firstName}</div> }
                     </div>
-                    
 
 
-                    <div>
-                        <label className={ style.label } htmlFor='secondName'>Фамилия *</label>
+
+                    <div className={style.item}>
+                        <label className={ style.label } htmlFor='secondName'>
+                            Фамилия *
+                        </label>
                         <input
                             className={style.input}
                             type={'text'}
@@ -56,10 +68,12 @@ function Form() {
                             onBlur={handleBlur}
                             value={values.secondName}
                         />
+                        { touched.secondName && errors.secondName && <div className={style.error}>{errors.secondName}</div> }
                     </div>
-                    {/* {touched.secondName && errors.secondName && <div className={'error'}>{errors.secondName}</div>} */}
 
-                    <div>
+
+
+                    <div className={style.item}>
                         <label className={ style.label } htmlFor='email'>Электронная почта *</label>
                         <input
                             className={style.input}
@@ -69,21 +83,23 @@ function Form() {
                             onBlur={handleBlur}
                             value={values.email}
                         />
+                        {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
                     </div>
-                    {/* {touched.load && errors.load && <p className={'error'}>{errors.load}</p>} */}
+                    
 
                     <div>
                         <label className={ style.labelLoad } htmlFor='load'>Загрузите резюме</label>
                         <input
                             className={style.inputLoad}
                             type={'file'}
-                            name={'load'}
+                            name={'file'}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.load}
+                            // value={values.load}
                         />
+                        {touched.file && errors.file && <p className={style.error}>{errors.file}</p>}
                     </div>
-                    {touched.load && errors.load && <p className={'error'}>{errors.load}</p>}
+
 
                 <button
                     // disabled={!isValid || !dirty}
