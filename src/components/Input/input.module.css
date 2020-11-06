@@ -89,5 +89,9 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
+}
 
+.submit {
+    width: 100px;
+    height: 40px;
 }

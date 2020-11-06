@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "formik": "^2.2.2",
     "node-sass": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -14,7 +15,8 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
     "styled-components": "^5.2.1",
-    "validator": "^13.1.17"
+    "validator": "^13.1.17",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
