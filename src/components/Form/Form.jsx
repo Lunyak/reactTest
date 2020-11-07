@@ -4,7 +4,11 @@ import { Formik, FieldArray } from 'formik'
 import * as yup from 'yup'
 
 function Form() { 
-    // 
+    
+    const getError = (touched, error) => {
+        return touched && error && <div key={error} className={style.label}>{error}</div>
+    }
+
     const validationsSchema = yup.object().shape({
         firstName: yup.string()
         .matches(/[^\s0-9`~!@#№$%^&*()_=+\\|\[\]{};:',.<>\/?]$/, 'некоректное имя')
@@ -19,8 +23,34 @@ function Form() {
         .required("Поле должно быть заполненным"),
 
         email: yup.string().email('Некорректный email').required('Введите email'),
-        file: undefined,
-    })
+
+        file: yup.array().of(yup.object().shape({
+            file: yup.mixed().test('fileSize', 'Размер файла больше 16 Мбайт', (value) => {
+                if (!value) return false
+                return value.size < 15000000
+            }).required(),
+            type: yup.string().oneOf([], 'Неверный формат').required(),
+            name: yup.string().required()
+            }).typeError('Добавьте файл')).required('')
+        })
+
+    const getFileShema = (file) => file && {
+        file: file,
+        type: file.type,
+        name: file.name
+    }
+
+    const getArrErrorsMessage = (errors) => { 
+        const result = []
+        errors && Array.isArray(errors) && errors.forEach((value) => { 
+            if (typeof value === 'string') {
+                result.push(value)
+            } else {
+                Object.values(value).forEach((error) => {result.push(error)})
+            }
+        })
+        return result
+    } 
 
     return (
         <div>
@@ -87,25 +117,42 @@ function Form() {
                     </div>
                     
 
-                    <div>
-                        <label className={ style.labelLoad } htmlFor='load'>Загрузите резюме</label>
-                        <input
-                            className={style.inputLoad}
-                            type={'file'}
-                            name={'file'}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            // value={values.load}
-                        />
-                        {touched.file && errors.file && <p className={style.error}>{errors.file}</p>}
-                    </div>
 
+                    <FieldArray name={ 'file' }>
+                        {( arryHelper ) => (
+                            <div>
+                            <label className={ style.labelLoad } htmlFor={'file'}>Загрузите резюме</label>
+                            <input
+                                className={style.inputLoad}
+                                type={'file'}
+                                name={'file'}
+                                id={'file'}
+                                onChange={(event) => {
+                                    const { files } = event.target
+                                    const file = getFileShema(files.item(0))
+                                    if (!file) {
+                                        arryHelper.remove(0)
+                                    }
+                                    if (Array.isArray(values.file)) {
+                                        arryHelper.replace(0, file)
+                                    } else { 
+                                        arryHelper.push(file)
+                                    }
+                                }}
+                            />
+                            {touched.file && errors.file && <div className={style.error}>{errors.file}</div>}
+                            {touched.file && errors.file && <p className={style.error}>{errors.file}</p>}
+                            {getArrErrorsMessage(errors.file).map((error) => getError(true, error))}
+                        </div>
+                        )}
+                    </FieldArray>
 
                 <button
                     // disabled={!isValid || !dirty}
                     onClick={handleSubmit}
-                    type={<code>submit</code>}
-                    >Отправить</button>
+                    type={`submit`}
+                    >Отправить
+                </button>
                 </div>
                 )}
             </Formik>
