@@ -83,12 +83,11 @@
     max-width: 310px;
     height: 22px;
     color: #40A9FF;
-    
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     cursor: pointer;
     transition: .5s;
 }
@@ -102,11 +101,11 @@
     max-width: 310px;
     height: 22px;
     color: red;
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 .inputLoad {
@@ -359,10 +358,51 @@
     }
 }
 
-/* .fileWrap .error {
-    color:#fff
-} */
+.namefile {
+    max-width: 80%;
+    align-items: center;
+    display: flex;
+}
 
 .fileWrap {
     height: 40px;
+    display: flex;
+    align-items: center;
 }
+
+.fileWrap button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: #8C8C8C
+}
+
+.namefile > button {
+    padding: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    outline: none;
+}
+
+.namefile svg {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+.namefile svg:hover path {
+    width: 10px;
+    height: 10px;
+    fill: #096DD9;
+}
+
+.fileWrap path {
+    fill: #8C8C8C;
+    width: 10px;
+    height: 10px;
+}
+/* .fileWrap path:hover {
+    fill: #096DD9;
+} */

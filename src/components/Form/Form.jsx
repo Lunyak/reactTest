@@ -5,11 +5,13 @@ import * as yup from "yup";
 import Icon from "../../image/File";
 import PopupSubmit from "../PopupSubmit/PopupSubmit";
 import PopupRules from "../PopupRules/PopupRules";
+import Chest from "../../image/Chest";
 
 function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
-  const [popupRules, setPopupRules] = useState(true);
+  const [popupRules, setPopupRules] = useState(false);
   const [name, setName] = useState('');
+  const [file, setFile] = useState('');
 
   const getError = (touched, error) => {
     return (
@@ -70,7 +72,7 @@ function Form() {
                   `text/plain`,
                   `application/vnd.openxmlformats-officedocument.wordprocessingml.document`,
                 ],
-                "   "
+                " "
               )
               .required(""),
             name: yup.string().required(""),
@@ -80,7 +82,7 @@ function Form() {
       .required("Добавьте файл"),
 
     gender: yup.string().required("укажите пол"),
-    link: yup.string().url("неверный формат").required("вставьте ссылку"),
+    link: yup.string().url("неверный формат"),
     toggle: yup.boolean(),
   });
 
@@ -121,6 +123,7 @@ function Form() {
             toggle: false,
           }}
           validateOnBlur
+          
           onSubmit={(values, { resetForm }) => {
             console.log(values);
             setPopupSubmit(true);
@@ -206,7 +209,7 @@ function Form() {
                       {!values.file ? (
                         <label className={style.fileLabel} htmlFor={"file"}>
                           {values.file
-                            ? values.file[0].name
+                            ? <div className={style.namefile}>{values.file[0].name}</div> 
                             : "Загрузите резюме"}
                         </label>
                       ) : (
@@ -220,7 +223,14 @@ function Form() {
                         >
                           <Icon />
                           {values.file
-                            ? values.file[0].name
+                            ? <div className={style.namefile}>{values.file[0].name}
+                                <button 
+                                    type='reset'
+                                    onClick={ ()=> {arryHelper.remove(0)} }
+                                    > 
+                                  <Chest />
+                                </button>
+                              </div> 
                             : "Загрузите резюме"}
                         </label>
                       )}
