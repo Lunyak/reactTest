@@ -41,8 +41,10 @@
   border-radius: 4px;
   /* scroll-behavior: auto; */
   overflow: auto;
-  
+  overflow-y: auto;
 }
+
+
 
 .title {
   margin-bottom: 14px;
@@ -110,10 +112,17 @@
   .wrap {
     max-width: 340px;
   }
+
 }
 
 @media (min-width: 928px) {
   .wrap {
     max-width: 547px;
+  }
+  .wrap {
+    width: 90%;
+    max-width: 758px;
+    height: 576px;
+    padding: 40px;
   }
 }

@@ -11,7 +11,7 @@ function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
   const [popupRules, setPopupRules] = useState(false);
   const [name, setName] = useState('');
-  const [file, setFile] = useState('');
+
 
   const getError = (touched, error) => {
     return (
@@ -81,7 +81,7 @@ function Form() {
       )
       .required("Добавьте файл"),
 
-    gender: yup.string().required("укажите пол"),
+    gender: yup.string().required(),
     link: yup.string().url("неверный формат"),
     toggle: yup.boolean(),
   });
@@ -122,6 +122,7 @@ function Form() {
             link: "",
             toggle: false,
           }}
+
           validateOnBlur
           
           onSubmit={(values, { resetForm }) => {
@@ -130,6 +131,7 @@ function Form() {
             setName(values.firstName)
             resetForm({ values: "" });
           }}
+
           validationSchema={validationsSchema}
         >
           {({
@@ -209,7 +211,7 @@ function Form() {
                       {!values.file ? (
                         <label className={style.fileLabel} htmlFor={"file"}>
                           {values.file
-                            ? <div className={style.namefile}>{values.file[0].name}</div> 
+                            ? <div className={style.namefile}>{ values.file[0].name }</div> 
                             : "Загрузите резюме"}
                         </label>
                       ) : (
@@ -224,12 +226,7 @@ function Form() {
                           <Icon />
                           {values.file
                             ? <div className={style.namefile}>{values.file[0].name}
-                                <button 
-                                    type='reset'
-                                    onClick={ ()=> {arryHelper.remove(0)} }
-                                    > 
-                                  <Chest />
-                                </button>
+
                               </div> 
                             : "Загрузите резюме"}
                         </label>
