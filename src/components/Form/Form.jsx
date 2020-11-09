@@ -9,6 +9,7 @@ import PopupRules from "../PopupRules/PopupRules";
 function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
   const [popupRules, setPopupRules] = useState(false);
+  const [name, setName] = useState('');
 
   const getError = (touched, error) => {
     return (
@@ -123,6 +124,7 @@ function Form() {
           onSubmit={(values, { resetForm }) => {
             console.log(values);
             setPopupSubmit(true);
+            setName(values.firstName)
             resetForm({ values: "" });
           }}
           validationSchema={validationsSchema}
@@ -139,10 +141,11 @@ function Form() {
           }) => (
             <div className={style.wrap}>
               <h2>Анкета соискателя</h2>
-
+              <h3>Личные данные</h3>
               <div className={style.personal}>
+              
                 <div className={style.item}>
-                  <h3>Личные данные</h3>
+                  
                   <label className={style.label} htmlFor="firstName">
                     Имя *
                   </label>
@@ -339,7 +342,7 @@ function Form() {
         </Formik>
       </div>
 
-      <PopupSubmit popup={popupSubmit} setPopup={setPopupSubmit} />
+      <PopupSubmit popup={popupSubmit} setPopup={setPopupSubmit} name={name}/>
       <PopupRules popup={popupRules} setPopup={setPopupRules} />
     </>
   );

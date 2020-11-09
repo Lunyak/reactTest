@@ -4,6 +4,9 @@
     max-width: 320px;
     margin: 0 auto;
 }
+
+
+
 .wrap h2 {
     margin-bottom: 40px;
     font-size: 40px;
@@ -18,7 +21,6 @@
 .input {
     width: 100%;
     height: 40px;
-    max-width: 320px;
     padding-left: 12px;
     margin: 0;
     border: 1px solid #D9D9D9;
@@ -31,7 +33,6 @@
 .inputError {
     width: 100%;
     height: 40px;
-    max-width: 320px;
     padding-left: 12px;
     margin: 0;
     border: 1px solid #D9D9D9;
@@ -77,18 +78,23 @@
     position: relative;
 }
 
-
 .fileLoad {
     width: 100%;
     max-width: 310px;
     height: 22px;
     color: #40A9FF;
-    background-color: #E6F7FF;
+    
     text-align: center;
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.fileLoad:hover {
+    background-color: #E6F7FF;
 }
 
 .fileError {
@@ -96,7 +102,6 @@
     max-width: 310px;
     height: 22px;
     color: red;
-    background-color: #E6F7FF;
     text-align: center;
     font-size: 14px;
     display: flex;
@@ -110,13 +115,13 @@
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
-	z-index: -1;
+    z-index: -1;
+    cursor: pointer;
 }
 
 .fileLabel {
     margin-top: 24px;
     width: 100%;
-    max-width: 320px;
     height: 40px;
     border: dashed 1px #D9D9D9;
     background-color: #F5F5F5;
@@ -128,6 +133,7 @@
     font-size: 14px;
     line-height: 22px;
     outline: none;
+    cursor: pointer;
 }
 
 .fileLabel:hover {
@@ -273,10 +279,82 @@
 .rules {
     color: #096DD9;
     text-decoration: underline;
+    cursor: pointer;
 }
 .rules:hover {
     color: #40A9FF;
 }
 .rules:active {
     color: #096DD9;
+}
+
+@media (min-width: 375px) {
+    .wrap {
+        max-width: 375px;
+    }
+    input {
+        max-width: 343px;
+    }
+    .inputError {
+        max-width: 343px;
+    }
+    .fileLabel {
+        max-width: 343px;
+    }
+    .checkboxWrap p {
+        font-size: 14px;
+    }
+    .submit {
+        max-width: 343px;
+    }
+    .fileLoad {
+        max-width: 343px;
+    }
+}
+
+@media (min-width: 928px) {
+    .wrap {
+        max-width: 928px;
+    }
+    input {
+        max-width: 256px;
+    }
+    .inputError {
+        max-width: 256px;
+    }
+    .fileLabel {
+        max-width: 343px;
+    }
+    .checkboxWrap p {
+        font-size: 14px;
+    }
+    .submit {
+        max-width: 343px;
+    }
+    .personal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item {
+        width: 40%;
+    }
+    .fileLabel {
+        margin-top: 0;
+        width: 256px;
+    }
+    .fileLoad {
+        max-width: 343px;
+        width: 49%;
+    }
+    .fileError {
+        width: 256px;
+    }
+    .fileLoad {
+        width: 256px;
+    }
+    .fileWrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

@@ -1,7 +1,8 @@
 import React from "react";
+import Chest from "../../image/Chest";
 import style from "./popupRules.module.css";
 
-function PopupRules({ popup, setPopup, name }) {
+function PopupRules({ popup, setPopup }) {
   return (
     <>
       <div className={popup ? style.popupOpen : style.popupClose}>
@@ -9,7 +10,7 @@ function PopupRules({ popup, setPopup, name }) {
             <button 
               className={style.close}
               onClick={()=> {setPopup(false)}}>
-              x
+              <Chest />
             </button>
           <h2 className={style.title}>Политика конфиденциальности</h2>
 
