@@ -358,3 +358,11 @@
         justify-content: center;
     }
 }
+
+/* .fileWrap .error {
+    color:#fff
+} */
+
+.fileWrap {
+    height: 40px;
+}

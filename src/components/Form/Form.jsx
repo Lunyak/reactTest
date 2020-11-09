@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import style from "./form.module.css";
 import { Formik, FieldArray, Field } from "formik";
 import * as yup from "yup";
-import Icon from "./Img";
+import Icon from "../../image/File";
 import PopupSubmit from "../PopupSubmit/PopupSubmit";
 import PopupRules from "../PopupRules/PopupRules";
 
 function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
-  const [popupRules, setPopupRules] = useState(false);
+  const [popupRules, setPopupRules] = useState(true);
   const [name, setName] = useState('');
 
   const getError = (touched, error) => {
@@ -70,7 +70,7 @@ function Form() {
                   `text/plain`,
                   `application/vnd.openxmlformats-officedocument.wordprocessingml.document`,
                 ],
-                "Неверный формат"
+                "   "
               )
               .required(""),
             name: yup.string().required(""),
