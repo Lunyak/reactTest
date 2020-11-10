@@ -9,7 +9,7 @@ import Chest from "../../image/Chest";
 
 function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
-  const [popupRules, setPopupRules] = useState(true);
+  const [popupRules, setPopupRules] = useState(false);
   const [name, setName] = useState('');
 
 
@@ -208,27 +208,30 @@ function Form() {
                 <FieldArray name={"file"}>
                   {(arryHelper) => (
                     <div className={style.fileWrap}>
-                      {!values.file ? (
+                      {!values.file ? ( 
+                        // файл не загружался то ...
                         <label className={style.fileLabel} htmlFor={"file"}>
-                          {values.file
-                            ? <div className={style.namefile}>{ values.file[0].name }</div> 
-                            : "Загрузите резюме"}
+                            <div className={style.fileInitial}>Загрузите резюме</div> 
                         </label>
                       ) : (
-                        <label
-                          className={
+                        //если файл загрузили то...
+                        <label className={ // выбор стили в соотвествии с валидностью
                             errors.file && values.file
                               ? style.fileError
                               : style.fileLoad
-                          }
-                          htmlFor={"file"}
-                        >
-                          <Icon />
-                          {values.file
-                            ? <div className={style.namefile}>{values.file[0].name}
-
-                              </div> 
-                            : "Загрузите резюме"}
+                          } htmlFor={"file"}>
+                            <Icon />
+                            <div className={style.namefile}>
+                            {values.file[0] ? 'a' : 'b'}
+                              {/* {
+                              
+                              values.file[0].name
+                              
+                              } */ }
+                            </div> 
+                            <button onClick={()=> { arryHelper.remove(values.file) }}>
+                              <Chest />
+                            </button>
                         </label>
                       )}
 
