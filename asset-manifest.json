@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/reactTest/static/css/main.b3209059.chunk.css",
+    "main.css": "/reactTest/static/css/main.5dbc98fb.chunk.css",
     "main.js": "/reactTest/static/js/main.8c5e1654.chunk.js",
     "main.js.map": "/reactTest/static/js/main.8c5e1654.chunk.js.map",
     "runtime-main.js": "/reactTest/static/js/runtime-main.96a80951.js",
@@ -8,16 +8,16 @@
     "static/js/2.54266c47.chunk.js": "/reactTest/static/js/2.54266c47.chunk.js",
     "static/js/2.54266c47.chunk.js.map": "/reactTest/static/js/2.54266c47.chunk.js.map",
     "index.html": "/reactTest/index.html",
-    "precache-manifest.8dfac8ab80afb8ecb2cad907a669b922.js": "/reactTest/precache-manifest.8dfac8ab80afb8ecb2cad907a669b922.js",
+    "precache-manifest.7057fa0b81c0311039d66fa9e4b39288.js": "/reactTest/precache-manifest.7057fa0b81c0311039d66fa9e4b39288.js",
     "service-worker.js": "/reactTest/service-worker.js",
-    "static/css/main.b3209059.chunk.css.map": "/reactTest/static/css/main.b3209059.chunk.css.map",
+    "static/css/main.5dbc98fb.chunk.css.map": "/reactTest/static/css/main.5dbc98fb.chunk.css.map",
     "static/js/2.54266c47.chunk.js.LICENSE.txt": "/reactTest/static/js/2.54266c47.chunk.js.LICENSE.txt",
     "static/media/index.css": "/reactTest/static/media/SFNSText-Light.f7d862e8.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.96a80951.js",
     "static/js/2.54266c47.chunk.js",
-    "static/css/main.b3209059.chunk.css",
+    "static/css/main.5dbc98fb.chunk.css",
     "static/js/main.8c5e1654.chunk.js"
   ]
 }
