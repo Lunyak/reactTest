@@ -215,22 +215,21 @@ function Form() {
                         </label>
                       ) : (
                         //если файл загрузили то...
-                        <label className={ // выбор стили в соотвествии с валидностью
+                        <label
+                          className={
+                        // выбор стили в соотвествии с валидностью
                             errors.file && values.file
                               ? style.fileError
                               : style.fileLoad
-                          } htmlFor={"file"}>
-                            <Icon />
+                          }
+                          htmlFor={"file"}
+                        >
+                          <Icon />
                             <div className={style.namefile}>
-                            {values.file[0] ? 'a' : 'b'}
-                              {/* {
-                              
-                              values.file[0].name
-                              
-                              } */ }
-                            </div> 
-                            <button onClick={()=> { arryHelper.remove(values.file) }}>
-                              <Chest />
+                              {values.file[0].name}
+                            </div>
+                            <button onClick={()=> { arryHelper.remove(0) }}>
+                              {/* <Chest /> */}
                             </button>
                         </label>
                       )}
