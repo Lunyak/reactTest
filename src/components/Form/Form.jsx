@@ -33,7 +33,6 @@ function Form() {
         /[^\s0-9`~!@#№$%^&*()_=+\\|\[\]{};:',.<>\/?]$/,
         "В имени могут быть только буквы"
       )
-      .max(3).required('ты китаец?')
       .matches(/^[а-я\w-]{3,99}$/i, "Имя слишком короткое")
       .matches(/^[а-я\w-]{0,12}$/i, "Имя слишком длинное")
       .required("Поле должно быть заполненным"),
@@ -82,7 +81,7 @@ function Form() {
       )
       .required("Добавьте файл"),
 
-    gender: yup.string().required(),
+    gender: yup.string(),
     link: yup.string().url("неверный формат"),
     toggle: yup.boolean(),
   });
