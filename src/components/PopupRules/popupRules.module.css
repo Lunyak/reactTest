@@ -54,6 +54,16 @@
   overflow: auto;
   overflow-x:hidden;
 }
+.subtitle::-webkit-scrollbar { width: 5px; height: 3px;}
+.subtitle::-webkit-scrollbar-button {  background-color: #ffffff; }
+.subtitle::-webkit-scrollbar-track {  background-color: #ffffff;}
+.subtitle::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.subtitle::-webkit-scrollbar-thumb { height:168px; background-color: #bcbcbcc2; border-radius: 3px;}
+.subtitle::-webkit-scrollbar-corner { background-color: #BCBCBC;}
+.subtitle::-webkit-resizer { background-color: #fff;}
+
+
+
 
 .subtitle > span {
   display: block;
@@ -75,6 +85,7 @@
   font-size: 16px;
   line-height: 24px;
   cursor: pointer;
+  outline: none;
 }
 
 .submit:hover {
@@ -127,17 +138,25 @@
   .wrap {
     width: 90%;
     max-width: 758px;
-    height: 576px;
-    padding: 40px;
+    padding: 40px 40px 0px 40px;
+  }
+  .title {
+    margin: 25px 0;
+    text-align: center;
   }
   .subtitle {
-    max-height: 390px;
+    max-height: 574px;
+    padding-right: 15px;
   }
   .submitWrap {
+    margin: 25px 0;
     width: 100%;
     background-color: #fff;
     display: flex;
     justify-content: center;
+  }
+  .submit {
+    margin-top: 0;
   }
   .close {
     top: 40px;
