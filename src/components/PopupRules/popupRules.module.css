@@ -23,20 +23,14 @@
 
 
 .wrap {
-  width: 90%;
+  width: 100%;
   max-width: 300px;
-  height: 576px;
-  padding: 15px;
-  /* padding-top: 32px; */
+  padding: 15px 20px 0 16px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
   /* scroll-behavior: auto; */
@@ -44,25 +38,21 @@
   overflow-y: auto;
 }
 
-
-
 .title {
   margin-bottom: 14px;
   font-weight: 700;
-  /* font-size: 24px; */
   font-size: 20px;
-  /* line-height: 38px; */
   line-height: 24px;
 }
 
 .subtitle {
   max-height: 500px;
   font-size: 12px;
-  /* font-size: 20px; */
   line-height: 38px;
   font-style: normal;
   font-weight: 400; 
   overflow: auto;
+  overflow-x:hidden;
 }
 
 .subtitle > span {
@@ -75,7 +65,7 @@
   width: 100%;
   min-height: 40px;
   max-width: 320px;
-  margin-top: 40px;
+  margin-top: 5px;
   background-color: #1890FF;
   color: #fff;
   border: none;
@@ -110,7 +100,7 @@
 }
 
 .submitWrap {
-  height: 330px;
+  margin: 10px 0;
   width: 100%;
   background-color: #fff;
 }
@@ -127,6 +117,7 @@
   .subtitle span {
     font-size: 20px;
   }
+  
 }
 
 @media (min-width: 928px) {
@@ -138,5 +129,18 @@
     max-width: 758px;
     height: 576px;
     padding: 40px;
+  }
+  .subtitle {
+    max-height: 390px;
+  }
+  .submitWrap {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  .close {
+    top: 40px;
+    right: 40px;
   }
 }
