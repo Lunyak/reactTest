@@ -157,14 +157,13 @@ function PopupRules({ popup, setPopup }) {
             Политики в свободном доступе расположена в сети Интернет по адресу
             httpsː//thismywebsite·com/privacy/.
           </p>
-          <button
-            onClick={() => {
-              setPopup(false);
-            }}
-            className={style.submit}
-          >
-            Я согласен
-          </button>
+          
+          <div className={style.submitWrap}>
+            <button onClick={() => { setPopup(false) }} className={style.submit} >
+              Я согласен
+            </button>
+          </div>
+          
         </div>
       </div>
     </>

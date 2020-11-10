@@ -56,11 +56,13 @@
 }
 
 .subtitle {
+  max-height: 500px;
   font-size: 12px;
   /* font-size: 20px; */
   line-height: 38px;
   font-style: normal;
   font-weight: 400; 
+  overflow: auto;
 }
 
 .subtitle > span {
@@ -107,12 +109,24 @@
   cursor: pointer;
 }
 
+.submitWrap {
+  height: 330px;
+  width: 100%;
+  background-color: #fff;
+}
 
 @media (min-width: 375px) {
   .wrap {
     max-width: 340px;
   }
-
+  .title {
+    font-size: 24px; 
+    line-height: 38px;
+  }
+  .subtitle,
+  .subtitle span {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 928px) {

@@ -9,7 +9,7 @@ import Chest from "../../image/Chest";
 
 function Form() {
   const [popupSubmit, setPopupSubmit] = useState(false);
-  const [popupRules, setPopupRules] = useState(false);
+  const [popupRules, setPopupRules] = useState(true);
   const [name, setName] = useState('');
 
 
