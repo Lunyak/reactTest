@@ -184,6 +184,7 @@
     border: none;
     transition: .4s;
     outline: none;
+    cursor: pointer;
 }
 
 
